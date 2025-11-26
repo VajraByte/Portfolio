@@ -1,0 +1,44 @@
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Vite ---
+dist/
+.vite/
+vite.config.ts.timestamp-*
+
+# --- Environment Files ---
+.env
+.env.*
+!.env.example
+
+# --- Logs ---
+logs
+*.log
+*.log.*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# --- Editor / OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- VSCode ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- Build Outputs ---
+*.zip
+*.tar.gz
+
+# --- Optional: TypeScript build cache ---
+*.tsbuildinfo
+
+# --- Tailwind auto-generated files ---
+tailwind.config.js.timestamp-*

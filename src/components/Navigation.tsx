@@ -38,7 +38,7 @@ export default function Navigation() {
             href="#contact"
             className="hidden sm:inline-block px-6 py-2 bg-secondary text-secondary-foreground rounded-lg hover:opacity-90 transition-opacity font-medium"
           >
-            Get Quote
+            Contact Us 
           </a>
 
           {/* Mobile Menu Button */}

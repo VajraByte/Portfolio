@@ -101,17 +101,17 @@ export default function CTA() {
             <div>
               <p className="text-2xl font-bold text-secondary mb-2">📧</p>
               <p className="text-sm text-muted-foreground">Email</p>
-              <p className="text-foreground font-semibold">hello@vajrabyte.tech</p>
+              <p className="text-foreground font-semibold">vajrabyte@gmail.com</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-secondary mb-2">📱</p>
               <p className="text-sm text-muted-foreground">Phone</p>
-              <p className="text-foreground font-semibold">+1 (555) 123-4567</p>
+              <p className="text-foreground font-semibold">+91 9967154210</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-secondary mb-2">📍</p>
               <p className="text-sm text-muted-foreground">Location</p>
-              <p className="text-foreground font-semibold">San Francisco, CA</p>
+              <p className="text-foreground font-semibold">Pune , Maharashtra</p>
             </div>
           </div>
         </div>

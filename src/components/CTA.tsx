@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 
 export default function CTA() {
@@ -9,6 +8,7 @@ export default function CTA() {
     name: "",
     email: "",
     company: "",
+    phone: "",
     message: "",
   })
 
@@ -19,11 +19,31 @@ export default function CTA() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    alert("Thank you! We will contact you soon.")
-    setFormData({ name: "", email: "", company: "", message: "" })
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        console.log("Form submitted successfully")
+        alert("Thank you! We will contact you soon.")
+        setFormData({ name: "", email: "", company: "", phone: "", message: "" })
+      } else {
+        const errorData = await response.json()
+        console.error("Form submission error:", errorData)
+        alert(`Something went wrong: ${errorData.message || "Please try again."}`)
+      }
+    } catch (error) {
+      console.error("There was an error submitting the form:", error)
+      alert("There was an error submitting the form. Please check the console.")
+    }
   }
 
   return (
@@ -64,6 +84,19 @@ export default function CTA() {
             </div>
 
             <div>
+              <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
+                placeholder="Your phone number"
+              />
+            </div>
+
+            <div>
               <label className="block text-sm font-medium text-foreground mb-2">Company</label>
               <input
                 type="text"
@@ -93,7 +126,7 @@ export default function CTA() {
               type="submit"
               className="w-full px-8 py-4 bg-gradient-to-r from-secondary to-accent text-secondary-foreground rounded-lg hover:opacity-90 transition-opacity font-semibold text-lg"
             >
-              Get Your Custom Quote
+              Submit
             </button>
           </form>
 
